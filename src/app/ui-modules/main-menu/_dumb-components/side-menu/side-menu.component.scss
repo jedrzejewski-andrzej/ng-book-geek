@@ -1,0 +1,47 @@
+@import 'src/assets/styles/variables';
+
+$menu: (
+  hover-bg: #f7f7f7,
+  active-bg: linear-gradient(270deg, #E1C7A2 0%, #E5BD84 100%),
+  //active-bg: #E1C7A2,
+  children-bg: map-get($colors, very-light),
+  child-hover-bg: map-get($colors, very-light),
+);
+
+.main-item {
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 0 15px 0 20px;
+  cursor: pointer;
+  color: map-get($colors, font-base);
+  line-height: 50px;
+  text-decoration: none;
+
+  &:hover:not(&--active):not(&--expanded) {
+    background: map-get($menu, hover-bg);
+  }
+
+  &--active {
+    background: map-get($menu, active-bg);
+    color: white;
+    cursor: default;
+  }
+
+  &__icon {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 15px;
+  }
+
+  &__text {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+
+    &--active {
+      color: white;
+    }
+  }
+}

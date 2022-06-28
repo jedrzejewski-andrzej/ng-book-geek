@@ -1,0 +1,199 @@
+@import "src/assets/styles/variables";
+
+$button: (
+  primary-gradient: // prettier-ignore
+  linear-gradient(270deg, #E1C7A2 0%, #bb8b5c 0%),
+  box-shadow: (
+    0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.2),
+  ),
+  disabled-color: rgba(0, 0, 0, 0.26),
+  disabled-bg: rgba(0, 0, 0, 0.12),
+  secondary-color: map-get($my-primary, 800),
+  secondary-bg-hover: #f0f0f0,
+);
+
+@mixin disabled-button {
+  cursor: not-allowed;
+  color: map-get($button, disabled-color);
+  background: map-get($button, disabled-bg);
+
+  ::ng-deep {
+    .disabled--grey {
+      fill: grey;
+    }
+  }
+}
+
+:host.gg-button {
+  border-radius: 4px;
+  box-shadow: map-get($button, box-shadow);
+  padding: 0;
+  display: inline-block;
+  border: none;
+  overflow: hidden;
+  transform: unset;
+  vertical-align: middle;
+  user-select: none;
+  text-align: center;
+  transition: transform 0.3s;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+
+  &:hover {
+    .inner__icon {
+      transform: scale(1.03);
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--with-center-icon {
+    width: auto;
+    min-width: 36px;
+    max-width: 36px;
+
+    .inner {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  ::ng-deep {
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: white;
+    }
+  }
+
+  &--secondary {
+    box-shadow: unset;
+
+    ::ng-deep {
+      .mat-progress-spinner circle,
+      .mat-spinner circle {
+        stroke: map-get($button, secondary-color);
+      }
+    }
+
+    .inner {
+      background: initial;
+      background-color: white;
+      color: map-get($button, secondary-color);
+      transition: background-color 0.3s;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: bold;
+      letter-spacing: 0;
+
+      &--disabled {
+        @include disabled-button();
+      }
+
+      &:hover:not(.inner--disabled) {
+        background-color: map-get($button, secondary-bg-hover);
+      }
+    }
+  }
+
+  &--disabled {
+    box-shadow: map-get($button, box-shadow);
+  }
+
+  &--loading {
+    cursor: not-allowed;
+  }
+}
+
+.inner {
+  padding: 8px 16px 8px;
+  background: map-get($button, primary-gradient);
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  border: none;
+  text-shadow: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--to-left {
+    text-align: left;
+  }
+
+  &--to-right {
+    text-align: right;
+  }
+
+  &--disabled {
+    @include disabled-button();
+  }
+
+  &--loading {
+    cursor: not-allowed;
+  }
+
+  &--small {
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 12px;
+    padding: 2px 5px;
+    font-weight: normal;
+  }
+
+  &__icon {
+    z-index: 1;
+    position: relative;
+    top: 2px;
+    line-height: 20px;
+
+    &--left {
+      margin-right: 8px;
+    }
+
+    &--right {
+      margin-left: 8px;
+    }
+  }
+
+  &__loading {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  &__spinner {
+    display: block;
+  }
+}
+
+.download-bar {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: calc(100% - 10px);
+
+  ::ng-deep {
+    .mat-progress-bar-fill::after {
+      background-color: map-get($colors, light-gray) !important;
+    }
+
+    .mat-progress-bar-background {
+      background-color: map-get($colors, gray);
+    }
+  }
+}

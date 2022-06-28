@@ -1,0 +1,52 @@
+<section class="dialog">
+  <h3 class="dialog__header">
+    {{data?.author ? 'Edycja autora' : 'Dodawanie autora'}}
+  </h3>
+  <button
+    (click)="close()"
+    class="dialog__close"
+  >
+    <span class="material-icons">
+      close
+    </span>
+  </button>
+
+  <form
+    *ngIf="formGroup"
+    class="form"
+    [formGroup]="formGroup"
+    (ngSubmit)="onSubmit()"
+  >
+    <app-control-input
+      class="form__control"
+      [formControl]="getControl('name')"
+      [name]="'Imię'"
+    ></app-control-input>
+
+    <app-control-input
+      class="form__control"
+      [formControl]="getControl('lastname')"
+      [name]="'Nazwisko'"
+    ></app-control-input>
+
+    <app-control-datepicker
+      class="form__control"
+      [formControl]="getControl('birth_date')"
+      [name]="'Data urodzenia'"
+    ></app-control-datepicker>
+
+    <div class="form__buttons">
+      <button
+        myButton
+        [appearance]="'secondary'"
+        type="button"
+        (click)="close()"
+      >
+        <span>Anuluj</span>
+      </button>
+      <button myButton type="submit">
+        <span>Zapisz</span>
+      </button>
+    </div>
+  </form>
+</section>

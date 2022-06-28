@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>FAE31A49-B3B1-4643-A0FA-2A5133DCF31A</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Konfigurator-Oddziałów" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="KO-2.-Jako-ADMIN-chcę-podać-podstawowe-informacje-o-oddziale" transform="translate(-812.000000, -714.000000)">
+            <g id="btn" transform="translate(795.000000, 702.000000)">
+                <g id="Icon/White/Zapisz" transform="translate(16.000000, 11.000000)">
+                    <g id="save-24px">
+                        <polygon id="Path" points="0 0 14 0 14 14 0 14"></polygon>
+                        <path d="M9.91666667,1.75 L1.75,1.75 L1.75,12.25 L12.25,12.25 L12.25,4.08333333 L9.91666667,1.75 Z M7,11.0833333 C6.03166667,11.0833333 5.25,10.3016667 5.25,9.33333333 C5.25,8.365 6.03166667,7.58333333 7,7.58333333 C7.96833333,7.58333333 8.75,8.365 8.75,9.33333333 C8.75,10.3016667 7.96833333,11.0833333 7,11.0833333 Z M8.75,5.25 L2.91666667,5.25 L2.91666667,2.91666667 L8.75,2.91666667 L8.75,5.25 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,57 @@
+<div class="panel" [attr.data-e2e]="'PANEL_CONTAINER'">
+  <div
+    class="shadow"
+    [class.shadow--visible]="mobileMenuExpanded"
+    (click)="shadowClickHandler()"
+  ></div>
+
+  <div class="panel__sidebar">
+    <svg
+      class="panel__hamburger"
+      (click)="hamburgerClickHandler()"
+      viewBox="0 0 18 12"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-23.000000, -28.000000)">
+          <g transform="translate(20.000000, 22.000000)">
+            <polygon points="0 0 24 0 24 24 0 24"></polygon>
+            <path
+              d="M3,18 L21,18 L21,16 L3,16 L3,18 Z M3,13 L21,13 L21,11 L3,11 L3,13 Z M3,6 L3,8 L21,8 L21,6 L3,6 Z"
+              fill-opacity="0.87"
+              fill="#000000"
+              fill-rule="nonzero"
+            ></path>
+          </g>
+        </g>
+      </g>
+    </svg>
+
+    <a class="logo" [routerLink]="'/panel'">
+      <img
+        class="logo__img"
+        src="/assets/images/logo.png"
+        alt="S'OUVRE Internationale logo"
+      />
+    </a>
+
+    <div
+      class="panel__menu"
+      [class.panel__menu--expanded]="mobileMenuExpanded"
+    >
+      <div class="menu__wrapper">
+        <app-side-menu
+          *ngIf="mainMenu$ | async as menu"
+          [menu]="menu"
+        ></app-side-menu>
+      </div>
+    </div>
+  </div>
+
+  <main class="panel__content">
+    <div class="router-wrapper" [@PanelRoutingAnimationState]="prepareRoute()">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

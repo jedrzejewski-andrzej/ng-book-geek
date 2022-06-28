@@ -1,0 +1,44 @@
+<div
+  class="inner"
+  [ngClass]="{
+    'inner--disabled': disabled,
+    'inner--to-left': textAlign === 'left',
+    'inner--to-right': textAlign === 'right',
+    'inner--small': size === 'small'
+  }"
+  matRipple
+  [matRippleColor]="matRippleColor"
+  [matRippleCentered]="false"
+  [matRippleDisabled]="disabled || false"
+  [matTooltip]="innerTooltip"
+  (click)="onClick($event)"
+>
+  <ng-container *ngIf="leftIcon">
+    <app-button-icon
+      class="inner__icon inner__icon--left"
+      [icon]="leftIcon"
+      [appearance]="appearance"
+      [disabled]="disabled"
+      [small]="size === 'small'"
+    ></app-button-icon>
+  </ng-container>
+  <ng-container *ngIf="centerIcon">
+    <app-button-icon
+      class="inner__icon"
+      [icon]="centerIcon"
+      [appearance]="appearance"
+      [disabled]="disabled"
+      [small]="size === 'small'"
+    ></app-button-icon>
+  </ng-container>
+  <ng-content *ngIf="!centerIcon"></ng-content>
+  <ng-container *ngIf="rightIcon">
+    <app-button-icon
+      class="inner__icon inner__icon--right"
+      [icon]="rightIcon"
+      [appearance]="appearance"
+      [disabled]="disabled"
+      [small]="size === 'small'"
+    ></app-button-icon>
+  </ng-container>
+</div>

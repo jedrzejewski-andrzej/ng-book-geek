@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 64 (101010) - https://sketch.com -->
+    <title>71A327AB-6C3F-4195-BAD6-4CC0D169A7EF</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="1" width="1120" height="1162" rx="4"></rect>
+        <filter x="-0.4%" y="-0.3%" width="100.9%" height="100.9%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="0.5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Rozliczenia" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Jako-ADMIN/BOK-chcę-mieć-pogląd-dyspozycji-z-faktur-prowizyjnych-2" transform="translate(-421.000000, -357.000000)">
+            <rect fill="#F7F7F7" x="0" y="0" width="1400" height="1410"></rect>
+            <g id="Tabela" transform="translate(260.000000, 217.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Wiersz">
+                    <g transform="translate(0.000000, 57.000000)">
+                        <g id="Tabela/Wiersz/Do-lewej-Pierwszy-Element" transform="translate(24.000000, 0.000000)">
+                            <g id="Tabela/Wiersz/Bg" fill="#FFFFFF">
+                                <rect id="Rectangle" x="0" y="0" width="390" height="102.857143"></rect>
+                            </g>
+                            <g id="Group-2" transform="translate(137.000000, 82.000000)">
+                                <g id="icon/kopiuj" transform="translate(0.000000, 1.000000)">
+                                    <g id="content_copy-24px-(2)">
+                                        <polygon id="Path" points="0 0 11 0 11 11 0 11"></polygon>
+                                        <path d="M7.33333333,0.458333333 L1.83333333,0.458333333 C1.32916667,0.458333333 0.916666667,0.870833333 0.916666667,1.375 L0.916666667,7.79166667 L1.83333333,7.79166667 L1.83333333,1.375 L7.33333333,1.375 L7.33333333,0.458333333 Z M8.70833333,2.29166667 L3.66666667,2.29166667 C3.1625,2.29166667 2.75,2.70416667 2.75,3.20833333 L2.75,9.625 C2.75,10.1291667 3.1625,10.5416667 3.66666667,10.5416667 L8.70833333,10.5416667 C9.2125,10.5416667 9.625,10.1291667 9.625,9.625 L9.625,3.20833333 C9.625,2.70416667 9.2125,2.29166667 8.70833333,2.29166667 Z M8.70833333,9.625 L3.66666667,9.625 L3.66666667,3.20833333 L8.70833333,3.20833333 L8.70833333,9.625 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

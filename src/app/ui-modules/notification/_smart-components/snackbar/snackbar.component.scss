@@ -1,0 +1,31 @@
+.snackbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__message {
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-size: 14px;
+    line-height: 17px;
+    padding-right: 24px;
+
+    & .snackbar__icon {
+      margin-right: 8px;
+    }
+  }
+
+  &__dismiss {
+    cursor: pointer;
+  }
+
+  ::ng-deep {
+    .snackbar__icon {
+      color: #fff;
+      width: 17px;
+      height: 17px;
+      font-size: 17px;
+    }
+  }
+}

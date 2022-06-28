@@ -1,0 +1,128 @@
+<h1>Lista książek</h1>
+<button
+  myButton
+  [rightIcon]="buttonIconEnum.PLUS"
+  class="button button--new"
+  (click)="openAddDialog()"
+>
+  <span>Dodaj książkę</span>
+</button>
+<div class="table-wrapper">
+  <ng-container *ngIf="listData$ | async as listData">
+    <div
+      class="table-wrapper"
+    >
+      <app-table-loading
+        [loading]="listDataLoading$ | async"
+      ></app-table-loading>
+
+      <ng-container *ngIf="listData">
+        <table
+          mat-table
+          [dataSource]="listData!.data"
+          class="table"
+        >
+          <ng-container matColumnDef="title">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >
+              <span>Tytył</span>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              {{element.title}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="isbn">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >
+              <span>ISBN</span>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              {{element.isbn}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="authors">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >
+              <span>Autorzy</span>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              <p *ngFor="let author of element.authors">
+                {{author.name + ' ' + author.lastname}}
+              </p>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="category">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >
+              <span>Kategoria</span>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              {{element.category.name}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >
+              <span>Akcje</span>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              <button
+                myButton
+                (click)="openEditionDialog(element)"
+                [centerIcon]="buttonIconEnum.EDIT"
+              ></button>
+              <button
+                myButton
+                (click)="openRemoveDialog(element.id)"
+                [centerIcon]="buttonIconEnum.DELETE"
+              ></button>
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns; let i = index"
+          ></tr>
+        </table>
+
+        <app-pagination
+          [meta]="listData!.meta"
+          (change)="paginationChangeHandler($event)"
+        ></app-pagination>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

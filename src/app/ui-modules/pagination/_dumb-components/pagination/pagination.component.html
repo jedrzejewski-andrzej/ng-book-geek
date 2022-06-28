@@ -1,0 +1,11 @@
+<mat-paginator
+  *ngIf="meta"
+  class="paginator"
+  [disabled]="loading"
+  [length]="meta.total"
+  [pageSize]="meta.per_page"
+  [pageSizeOptions]="pageSizeOptions"
+  [pageIndex]="meta.current_page - 1"
+  (page)="paginatorChangeHandler($event)"
+>
+</mat-paginator>

@@ -1,0 +1,49 @@
+<mat-form-field
+  appearance="outline"
+  *ngIf="formControl"
+  class="form-field input__text"
+  [floatLabel]="floatLabel"
+>
+  <mat-label>{{name}}</mat-label>
+
+  <ng-container [ngSwitch]="inputType">
+    <input
+      *ngSwitchCase="'number'"
+      matInput
+      appOnlyNumber
+      [ngModel]="computedValue"
+      (focusout)="propagateTouch()"
+      (ngModelChange)="setNewValue($event)"
+      [errorStateMatcher]="errorStateMatcher"
+      [disabled]="disabled"
+      [type]="'text'"
+      #input
+    />
+
+    <input
+      *ngSwitchDefault
+      matInput
+      [ngModel]="computedValue"
+      (focusout)="propagateTouch()"
+      (ngModelChange)="setNewValue($event)"
+      [errorStateMatcher]="errorStateMatcher"
+      [disabled]="disabled"
+      [type]="computedInputType"
+      #input
+      (keypress)="$event.stopImmediatePropagation(); $event.stopPropagation()"
+      (keydown)="$event.stopImmediatePropagation(); $event.stopPropagation()"
+      (keyup)="$event.stopImmediatePropagation(); $event.stopPropagation()"
+    />
+  </ng-container>
+
+  <mat-hint
+    *ngIf="hint"
+    align="end"
+  >{{hint}}</mat-hint>
+
+  <mat-error
+    class="form-field__error"
+    *ngIf="errors"
+  >{{errors | json}}
+  </mat-error>
+</mat-form-field>

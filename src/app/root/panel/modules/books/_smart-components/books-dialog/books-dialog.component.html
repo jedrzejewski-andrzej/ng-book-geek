@@ -1,0 +1,60 @@
+<section class="dialog">
+  <h3 class="dialog__header">
+    {{data?.book ? 'Edycja książki' : 'Dodawanie ksiązki'}}
+  </h3>
+  <button
+    (click)="close()"
+    class="dialog__close"
+  >
+    <span class="material-icons">
+      close
+    </span>
+  </button>
+
+  <form
+    *ngIf="formGroup"
+    class="form"
+    [formGroup]="formGroup"
+    (ngSubmit)="onSubmit()"
+  >
+    <app-control-input
+      class="form__control"
+      [formControl]="getControl('title')"
+      [name]="'Tytuł'"
+    ></app-control-input>
+
+    <app-control-input
+      class="form__control"
+      [formControl]="getControl('isbn')"
+      [name]="'ISBN'"
+    ></app-control-input>
+
+    <app-control-select
+      [name]="'Autor'"
+      [options]="authorsOptions$ | async"
+      [formControl]="getControl('author_id')"
+      class="form__control"
+    ></app-control-select>
+
+    <app-control-select
+      [name]="'Kategoria'"
+      [options]="categoriesOptions$ | async"
+      [formControl]="getControl('category_id')"
+      class="form__control"
+    ></app-control-select>
+
+    <div class="form__buttons">
+      <button
+        myButton
+        [appearance]="'secondary'"
+        type="button"
+        (click)="close()"
+      >
+        <span>Anuluj</span>
+      </button>
+      <button myButton type="submit">
+        <span>Zapisz</span>
+      </button>
+    </div>
+  </form>
+</section>

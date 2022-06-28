@@ -1,0 +1,70 @@
+@import 'src/assets/styles/variables';
+@import 'box-with-shadow';
+
+@mixin material-table() {
+  .table-wrapper {
+    @include box-with-shadow();
+
+    width: 100%;
+
+    &__scrollable {
+      display: block;
+      overflow-x: auto;
+      max-width: 100%;
+    }
+  }
+
+  .mat-table {
+    width: 100%;
+    overflow-x: auto;
+
+    @media screen and (max-width: map-get($breakpoints, desktop)) {
+      min-width: 1000px;
+    }
+
+    th.mat-header-cell,
+    td.mat-cell,
+    td.mat-footer-cell {
+      align-content: center;
+      vertical-align: middle;
+      line-height: 14px;
+    }
+
+    th.mat-header-cell {
+      padding: 21px 0;
+      font-weight: 600;
+
+      &:nth-child(1) {
+        padding-left: 24px;
+      }
+
+      &:nth-last-child(1) {
+        padding-right: 24px;
+      }
+    }
+
+    tr.mat-row {
+      height: 53px;
+
+      &:not(.expandable-row) {
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: map-get($colors, very-light);
+        }
+      }
+    }
+  }
+
+  .center {
+    text-align: center;
+
+    ::ng-deep .mat-sort-header-container {
+      justify-content: center;
+    }
+  }
+
+  .left {
+    text-align: left;
+  }
+}

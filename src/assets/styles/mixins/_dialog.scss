@@ -1,0 +1,53 @@
+@import 'src/assets/styles/variables';
+@mixin dialog() {
+  .dialog {
+    padding: 70px 50px 50px;
+    position: relative;
+
+    &__close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      border: none;
+      padding: 0;
+      background-color: transparent;
+      display: flex;
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
+
+      ::ng-deep {
+        .mat-icon {
+          color: map-get($dialog, close-color);
+        }
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__button {
+      + .dialog__button {
+        margin-left: 10px;
+      }
+    }
+
+    @media screen and (max-width: map-get($breakpoints, tablet)) {
+      padding: 64px 20px 30px;
+
+      &__close {
+        top: 20px;
+        right: 20px;
+      }
+    }
+  }
+
+  .mat-dialog-content {
+    margin: 0 !important;
+  }
+}

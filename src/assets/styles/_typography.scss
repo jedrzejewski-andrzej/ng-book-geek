@@ -1,0 +1,63 @@
+@import '~@angular/material/theming';
+
+@font-face {
+  font-family: 'Sen';
+  src: url('src/assets/fonts/sen/Sen-Regular.ttf') format('truetype'),
+    url('src/assets/fonts/sen/Sen-Regular.woff') format('woff');
+  font-weight: normal; // regular
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sen';
+  src: url('src/assets/fonts/sen/Sen-Bold.ttf') format('truetype'),
+    url('src/assets/fonts/sen/Sen-Bold.woff') format('woff');
+  font-weight: 700; // bold
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sen';
+  src: url('src/assets/fonts/sen/Sen-ExtraBold.ttf') format('truetype'),
+    url('src/assets/fonts/sen/Sen-ExtraBold.woff') format('woff');
+  font-weight: 800; // extra-bold
+  font-style: normal;
+}
+
+html {
+  body {
+    * {
+      font-family: 'Sen', Arial, Helvetica, sans-serif;
+    }
+  }
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: 33px;
+
+  @media screen and (max-width: map-get($breakpoints, desktop)) {
+    font-size: 22px;
+    letter-spacing: 0;
+    line-height: 27px;
+  }
+}
+
+h2 {
+  color: map-get($colors, primary);
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 22px;
+  text-transform: uppercase;
+
+  @media screen and (max-width: map-get($breakpoints, desktop)) {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+  }
+}

@@ -1,0 +1,14 @@
+:host {
+  position: relative;
+  overflow: visible;
+  display: block;
+  z-index: 1;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+}

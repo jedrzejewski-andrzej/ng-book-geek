@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  min-height: 100vh;
+
+  &__button {
+    margin-top: 50px;
+  }
+}

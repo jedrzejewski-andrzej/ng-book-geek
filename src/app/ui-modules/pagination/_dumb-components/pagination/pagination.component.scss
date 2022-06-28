@@ -1,0 +1,12 @@
+@import 'src/assets/styles/variables';
+
+.paginator {
+  ::ng-deep {
+    .mat-select-value-text {
+      color: map-get($colors, font-white);
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 19px;
+    }
+  }
+}

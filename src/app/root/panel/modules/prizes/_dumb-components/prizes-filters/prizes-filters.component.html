@@ -1,0 +1,14 @@
+<form
+  class="form"
+  *ngIf="formGroup"
+  [formGroup]="formGroup"
+  (ngSubmit)="submitHandler()"
+>
+  <div class="form__row">
+    <app-control-input
+      class="form__control"
+      [name]="'Szukaj...'"
+      [formControl]="getFormControl('query')"
+    ></app-control-input>
+  </div>
+</form>

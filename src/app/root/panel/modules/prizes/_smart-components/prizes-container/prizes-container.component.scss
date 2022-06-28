@@ -1,0 +1,40 @@
+@import 'src/assets/styles/mixins/material-table';
+@import 'src/assets/styles/variables';
+
+@include material-table();
+
+.table {
+  min-width: 1120px;
+
+  th,
+  td {
+    padding: 24px 0;
+    text-align: center;
+    width: 15%;
+
+    &:first-child {
+      padding: 0 0 0 24px;
+      text-align: left;
+      width: 85%;
+    }
+
+    &:last-child {
+      padding: 24px 24px 24px 0;
+      width: 15%;
+
+      button {
+        margin-right: 3px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.button {
+  &--new {
+    margin-bottom: 20px;
+  }
+}

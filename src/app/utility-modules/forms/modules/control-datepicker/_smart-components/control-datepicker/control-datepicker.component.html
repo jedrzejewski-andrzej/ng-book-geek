@@ -1,0 +1,38 @@
+<mat-form-field
+  appearance="outline"
+  *ngIf="formControl"
+  class="form-field input__text"
+  [floatLabel]="floatLabel"
+>
+  <mat-label>{{name}}</mat-label>
+
+  <input
+    matInput
+    [matDatepicker]="picker"
+    [ngModel]="computedValue"
+    (focusout)="propagateTouch()"
+    (ngModelChange)="setNewValue($event)"
+    [errorStateMatcher]="errorStateMatcher"
+    [disabled]="disabled"
+    [readonly]="true"
+    (click)="picker.open()"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+
+  <!-- suffixes -->
+  <span class="clear clear--float" *ngIf="clearable && computedValue">
+    <span
+      (click)="clearInput()"
+      *ngIf="!isReadonly"
+    >
+      <mat-icon class="clear__icon clear__icon--small">close</mat-icon>
+    </span>
+  </span>
+
+  <mat-error
+    class="form-field__error"
+    *ngIf="errors"
+  >{{errors}}
+  </mat-error>
+</mat-form-field>

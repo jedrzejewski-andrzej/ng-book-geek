@@ -1,0 +1,21 @@
+// This file overrides Angular Material color palettes
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+@import 'src/assets/styles/variables';
+
+$custom-typography: mat.define-palette($custom-typography, $font-family: 'Sen');
+
+@include mat-core($custom-typography);
+body {
+  background-color: map-get($colors, background-base);
+}
+$my-primary: mat.define-palette(mat.$primary);
+// the first two are the custom palettes we declared above
+$my-theme-primary: mat.$my-primary;
+$my-theme-accent: mat.$my- accent;
+$my-theme-warn: mat.$my-warn;
+$my-theme: mat.define-palette($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+.mat-table {
+  width: 100%;
+}

@@ -1,0 +1,77 @@
+<nav class="nav" role="navigation">
+  <ng-container *ngFor="let mainItem of menu; let mainIndex = index">
+    <ng-container
+      *ngTemplateOutlet="
+        mainItem.children ? elementWithChildren : element;
+        context: { $implicit: mainItem, mainIndex: mainIndex }
+      "
+    >
+    </ng-container>
+  </ng-container>
+</nav>
+
+<ng-template #element let-mainItem let-mainIndex="mainIndex">
+  <a
+    class="main-item"
+    [routerLink]="mainItem.path"
+    [routerLinkActive]="'main-item--active'"
+  >
+    <div class="main-item__inner">
+      <app-menu-icon
+        class="main-item__icon"
+        [icon]="mainItem.icon"
+        [active]="isActive(mainIndex)"
+      ></app-menu-icon>
+      <span
+        class="main-item__text"
+        [class.main-item__text--active]="isActive(mainIndex)"
+      >{{mainItem.name}}</span>
+    </div>
+  </a>
+</ng-template>
+
+<ng-template #elementWithChildren let-mainItem let-mainIndex="mainIndex">
+  <div
+    class="main-item main-item--width-children"
+    [class.main-item--expanded]="mainItem.expanded || isActive(mainIndex)"
+    (click)="toggleExpansion(mainIndex)"
+  >
+    <div class="main-item__inner">
+      <app-menu-icon
+        class="main-item__icon"
+        [icon]="mainItem.icon"
+        [active]="isActive(mainIndex)"
+      ></app-menu-icon>
+      <span
+        class="main-item__text"
+        [class.main-item__text--active]="
+          mainItem.expanded || isActive(mainIndex)
+        "
+      >{{mainItem.name}}</span>
+    </div>
+  </div>
+
+  <ng-container *ngIf="mainItem.children?.length">
+    <div
+      class="children"
+      [class.children--expanded]="mainItem.expanded || isActive(mainIndex)"
+      (click)="(false)"
+      [@expandable]="
+        mainItem.expanded || isActive(mainIndex) ? 'expanded' : 'collapsed'
+      "
+    >
+      <div class="children__inner">
+        <ng-container
+          *ngFor="let child of mainItem.children; let childIndex = index"
+        >
+          <a
+            class="children__child"
+            [routerLink]="child.path"
+            [routerLinkActive]="'children__child--active'"
+          >{{child.name}}
+          </a>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

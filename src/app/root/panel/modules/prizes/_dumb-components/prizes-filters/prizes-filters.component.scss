@@ -1,0 +1,21 @@
+@import 'src/assets/styles/variables';
+
+.form {
+  width: 100%;
+  padding-bottom: 20px;
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__control {
+    height: 63px;
+    width: 50%;
+
+    &--small {
+      width: 17%;
+    }
+  }
+}

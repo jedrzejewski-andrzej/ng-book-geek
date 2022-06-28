@@ -1,0 +1,122 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+
+$colors: (
+  primary: #E1C7A2,
+  font-base: rgba(0, 0, 0, 0.87),
+  font-medium: rgba(0, 0, 0, 0.54),
+  font-light: rgba(0, 0, 0, 0.42),
+  font-disabled: rgba(0, 0, 0, 0.3),
+  very-light: rgba(0, 0, 0, 0.2),
+  font-white: rgba(255, 255, 255, 0.87),
+  background-base: #f7f7f7,
+  background-dark: #efefef,
+  success: #4caf50,
+  danger: #f44336,
+  warn: #ff9800,
+  info: #2196f3,
+  table-summary-bg: #ebebeb,
+  table-border: #dfdfdf,
+  cart-products-bg: #f8f8f8,
+  table-font-color: #3a3a3a,
+  user-box-bg: #e6e6e6,
+  menu-bg: linear-gradient(270deg, #E1C7A2 0%, #bb8b5c 100%),
+  no-access: #e67e22,
+);
+
+$shadows: (
+  standard: 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+  0 1px 1px 0 rgba(0, 0, 0, 0.14): 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+);
+
+/* *
+Palette generated at
+https://materialpalettes.com/
+* */
+
+$my-warn: mat.define-palette($mat-red);
+
+$my-accent: (
+  50: #f2f9eb,
+  100: #dfeecd,
+  200: #cae3ae,
+  300: #b6d88e,
+  400: #a6d075,
+  500: #97c75e,
+  600: #88b755,
+  700: #74a34b,
+  800: #628e42,
+  900: #436c31,
+  A100: #e6efc7,
+  A200: #d6e5a4,
+  A400: #bdd26c,
+  A700: #98a549,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: black,
+    A400: black,
+    A700: black,
+  ),
+);
+
+$my-primary: (
+  900: #E1C7A2,
+  800:#E1C7A2,
+  700: #E1C7A2,
+  600: #E1C7A2,
+  500: #E1C7A2,
+  400: #E1C7A2,
+  300: #E1C7A2,
+  200: #E1C7A2,
+  100: #E1C7A2,
+  50: #E1C7A2,
+  A100: #E1C7A2,
+  A200: #E1C7A2,
+  A400: #E1C7A2,
+  A700: #E1C7A2,
+  A800: #ded7e0,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: black,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: black,
+    A400: black,
+    A700: black,
+  ),
+);
+
+$dialog: (
+  close-color: map-get($colors, very-light),
+);
+
+$breakpoints: (
+  desktop: 1240px,
+  tablet: 767px,
+);
+
+$scrollbar: (
+  border: 1px solid map-get($colors, very-light),
+);
+
+$snackbar-colors: (
+  success: #4caf50,
+  error: #f44336,
+);

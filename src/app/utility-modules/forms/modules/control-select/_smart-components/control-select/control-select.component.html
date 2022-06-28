@@ -1,0 +1,37 @@
+<mat-form-field appearance="outline" *ngIf="formControl" class="form-field">
+  <mat-label>{{name}}</mat-label>
+  <mat-select
+    [errorStateMatcher]="errorStateMatcher"
+    [ngModel]="value"
+    (selectionChange)="changeHandler($event)"
+    [disabled]="disabled"
+    (focusout)="propagateTouch()"
+    [multiple]="multiple"
+    [panelClass]="['custom-select']"
+  >
+    <mat-option *ngIf="resettable && !multiple" [value]="null">
+      <span>{{nullOptionName}}</span>
+    </mat-option>
+    <mat-option
+      *ngFor="let option of options; let i = index"
+      [value]="option.value"
+      [disabled]="option.disabled"
+    >
+      <div class="form-field__icon-wrapper" *ngIf="option.icon">
+        <img
+          class="form-field__icon"
+          [src]="option!.icon!.url"
+          alt="{{option!.icon!.url}}"
+        />
+      </div>
+      <span>{{option.name}}</span>
+    </mat-option>
+  </mat-select>
+
+  <mat-error
+    *ngIf="errors"
+
+  >
+    {{errors | json}}
+  </mat-error>
+</mat-form-field>

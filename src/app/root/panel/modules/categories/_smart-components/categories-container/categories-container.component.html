@@ -1,0 +1,81 @@
+<h1>Lista kategorii</h1>
+<button
+  myButton
+  [rightIcon]="buttonIconEnum.PLUS"
+  class="button button--new"
+  (click)="openAddDialog()"
+>
+  <span>Dodaj kategorię</span>
+</button>
+<div class="table-wrapper">
+  <ng-container *ngIf="listData$ | async as listData">
+    <div
+      class="table-wrapper"
+    >
+      <app-table-loading
+        [loading]="listDataLoading$ | async"
+      ></app-table-loading>
+
+      <ng-container *ngIf="listData">
+        <table
+          mat-table
+          [dataSource]="listData!.data"
+          class="table"
+        >
+          <ng-container matColumnDef="name">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >
+              <span>Nazwa</span>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              {{element.name}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >
+              <span>Akcje</span>
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              <button
+                myButton
+                (click)="openEditionDialog(element)"
+                [centerIcon]="buttonIconEnum.EDIT"
+              ></button>
+              <button
+                myButton
+                (click)="openRemoveDialog(element.id)"
+                [centerIcon]="buttonIconEnum.DELETE"
+              ></button>
+            </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns; let i = index"
+          ></tr>
+        </table>
+
+        <app-pagination
+          [meta]="listData!.meta"
+          (change)="paginationChangeHandler($event)"
+        ></app-pagination>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
